@@ -23,21 +23,21 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
     }
     if (index == 0) { // Left roller
         if (clockwise) {
-            tap_code(KC_MS_WH_DOWN);
+            tap_code(KC_DOWN);
         } else {
-            tap_code(KC_MS_WH_UP);
+            tap_code(KC_UP);
         }
     } else if (index == 1) { // Left encoder
         if (clockwise) {
-            tap_code16(S(KC_TAB));
+            tap_code(KC_VOLU);
         } else {
-            tap_code(KC_TAB);
+            tap_code(KC_VOLD);
         }
     } else if (index == 2) { // Right roller
         if (clockwise) {
-            tap_code16(S(KC_MS_WH_DOWN));
+            tap_code(KC_WH_U);
         } else {
-            tap_code16(S(KC_MS_WH_UP));
+            tap_code(KC_WH_D);
         }
     } else if (index == 3) { // Right encoder
         if (clockwise) {
@@ -60,32 +60,35 @@ oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
     }
 }
 bool oled_task_kb(void) {
-   if (!oled_task_user()) {
-       return false;
-   }
-   if (is_keyboard_master()) {
-       // Host Keyboard Layer Status
-       oled_write_P(PSTR("LAYER:\n"), false);
-       oled_write_P(PSTR("\n"), false);
-	   
-       switch (get_highest_layer(layer_state)) {
-           case 0:
-               oled_write_P(PSTR("DEFAULT\n\n\n\n"), false);
-               break;
-           case 3:
-               oled_write_P(PSTR("FUNCTION\n\n\n\n"), false);
-               break;
-           case 2:
-               oled_write_P(PSTR("SYMBOLS\n\n\n\n"), false);
-               break;
-           case 1:
-               oled_write_P(PSTR("NAVIGATIONAND\nNUMBERS\n"), false);
-               break;
-           default:
-               oled_write_ln_P(PSTR("Undefined"), false);
-       }
+    if (!oled_task_user()) {
+        return false;
+    }
+    if (is_keyboard_master()) {
+        // Host Keyboard Layer Status
+        oled_write_P(PSTR("LAYER:\n"), false);
+        oled_write_P(PSTR("\n"), false);
+
+        switch (get_highest_layer(layer_state)) {
+            case 0:
+                oled_write_P(PSTR("DEFAULT\n\n\n\n"), false);
+                break;
+            case 4:
+                oled_write_P(PSTR("FUNCTION\n\n\n\n"), false);
+                break;
+            case 3:
+                oled_write_P(PSTR("NUMBERS\n\n\n\n"), false);
+                break;
+            case 2:
+                oled_write_P(PSTR("SYMBOLS\n\n\n\n"), false);
+                break;
+            case 1:
+                oled_write_P(PSTR("NAV\n\n\n\n"), false);
+                break;
+            default:
+                oled_write_ln_P(PSTR("Undefined"), false);
+        }
     } else {
-  static const char PROGMEM my_logo[] = {
+    static const char PROGMEM my_logo[] = {
     // Paste the code from the previous step below this line!
     // 'waterfowl for OLED', 64x128px
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
