@@ -80,14 +80,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |   [  |   !  |   @  |   #  |   ]  |  |  2  |    |  3  |  |      | GUI  |  CTL |  ALT |  SFT |
  * `----------------------------------'  `-----'    `-----'  `----------------------------------'
  *          ,-----.   ,--------------------.            ,--------------------.   ,-----. 
- *          |  1  |   |  =  |   _   |   -  |            |       |    |       |   |  4  |
+ *          |  1  |   |  =  |   -   |   _  |            |       |    |       |   |  4  |
  *          `-----'   `--------------------'            `--------------------'   `-----'
  */
 [_SYM] = LAYOUT(
   KC_LCBR, KC_AMPR, KC_ASTR, KC_PIPE, KC_RCBR,        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   KC_LPRN, KC_DLR,  KC_PERC, KC_CIRC, KC_RPRN,        KC_BSLS,   KC_COLN, KC_SCLN, KC_TILD, KC_GRV,
   KC_LBRC, KC_EXLM, KC_AT,   KC_HASH, KC_RBRC,        KC_NO,   KC_RGUI, KC_RCTL,   KC_RALT,   KC_RSFT,
-  KC_1, KC_EQL, KC_UNDS, KC_MINS, KC_2,         KC_3, KC_NO, KC_NO, KC_NO, KC_4
+  KC_1, KC_EQL, KC_MINS, KC_UNDS, KC_2,         KC_3, KC_NO, KC_NO, KC_NO, KC_4
 ),
 
 /* NUM
