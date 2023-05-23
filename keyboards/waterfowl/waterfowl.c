@@ -35,15 +35,15 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
         }
     } else if (index == 2) { // Right roller
         if (clockwise) {
-            tap_code(KC_WH_U);
-        } else {
-            tap_code(KC_WH_D);
-        }
-    } else if (index == 3) { // Right encoder
-        if (clockwise) {
             tap_code(KC_RIGHT);
         } else {
             tap_code(KC_LEFT);
+        }
+    } else if (index == 3) { // Right encoder
+        if (clockwise) {
+            tap_code(KC_WH_U);
+        } else {
+            tap_code(KC_WH_D);
         }
     }
 
