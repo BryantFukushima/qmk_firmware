@@ -74,6 +74,7 @@ bool oled_task_kb(void) {
                 break;
             case 6:
                 oled_write_P(PSTR("GAMING\n\n\n\n"), false);
+                break;
             case 5:
                 oled_write_P(PSTR("MOUSE\n\n\n\n"), false);
                 break;
