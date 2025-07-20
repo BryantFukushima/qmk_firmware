@@ -23,7 +23,8 @@ enum layer_names {
     _SYM,
     _NUM,
     _FUNC,
-    _MOUSE
+    _MOUSE,
+    _GAMING
 };
 
   
@@ -40,14 +41,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |   Z  |   X  |   C  |   D  |   V  |  |PLAY |    |CAPS |  |   K  |   H  |   ,  |   .  |   /  |
  * `----------------------------------'  `-----'    `-----'  `----------------------------------'
  *          ,-----.   ,--------------------.            ,--------------------.   ,-----. 
- *          |  1  |   | ESC | BSPC  | DEL  |            | ENTER | SPC | TAB  |   |  4  |
+ *          |TO(6)|   | ESC | BSPC  | DEL  |            | ENTER | SPC | TAB  |   |  4  |
  *          `-----'   `--------------------'            `--------------------'   `-----'
  */
 [_COLEMAKDH] = LAYOUT(
   KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,         KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT,
   MT(MOD_LSFT, KC_A),    MT(MOD_LALT, KC_R),    MT(MOD_LCTL, KC_S),    MT(MOD_LGUI, KC_T),    KC_G,         KC_M,    MT(MOD_RGUI, KC_N),    MT(MOD_RCTL, KC_E),    MT(MOD_RALT, KC_I),    MT(MOD_RSFT, KC_O),
   KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,         KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
-  KC_1, LT(4,KC_ESC), LT(1,KC_BSPC), LT(3, KC_DEL), KC_MPLY,         KC_CAPS, KC_ENT, LT(2, KC_SPC), LT(5, KC_TAB), KC_4
+  TO(6), LT(4,KC_ESC), LT(1,KC_BSPC), LT(3, KC_DEL), KC_MPLY,         KC_CAPS, KC_ENT, LT(2, KC_SPC), LT(5, KC_TAB), KC_4
 ),
 
 /* NAVNUM
@@ -148,5 +149,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO,  KC_MS_L,   KC_MS_D,   KC_MS_R, KC_NO,         KC_NO,  KC_BTN1,  KC_BTN2,   KC_NO, KC_NO,
   KC_NO,  KC_NO,   KC_NO,   KC_NO, KC_NO,         KC_NO,  KC_ACL0,   KC_ACL1,   KC_ACL2, KC_NO,
   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
+),
+
+/* GAMING
+ *
+ * ,----------------------------------.                      ,----------------------------------.
+ * |  TAB |   Q  |  W  |   E   |   R  |                      |   T  |   Y  |   U  |   I  |   O  |
+ * |------+------+------+------+------|                      |------+------+------+------+------|
+ * |  SFT |  A   |  S  |   D  |   F   |                      |   G  |   H  |   J  |   K  |   L  |
+ * |------+------+------+------+------|  ,-----.    ,-----.  |------+------+------+------+------|
+ * |  ALT |  Z   |  X  |  C   |   V   |  |  1  |    |  2  |  |   B  |   N  |   M  |      |   P  |
+ * `----------------------------------'  `-----'    `-----'  `----------------------------------'
+ *          ,-----.   ,--------------------.            ,--------------------.   ,-----. 
+ *          |TO(0)|   | ESC |  SPC  | CTL  |            | ENTER | SPC | BSP  |   |  4  |
+ *          `-----'   `--------------------'            `--------------------'   `-----'
+ */
+[_GAMING] = LAYOUT(
+  KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,         KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,
+  MOD_LSFT,  KC_A,    KC_S,    KC_D,    KC_F,         KC_G,    KC_H,    KC_J,    KC_K,    KC_L,
+  MOD_LALT,  KC_Z,    KC_X,    KC_C,    KC_V,         KC_B,    KC_N,    KC_M,    KC_NO,   KC_P,
+  TO(0), KC_ESC, KC_SPC, MOD_LCTL, KC_1,         KC_2, KC_ENT, KC_SPC, KC_BSPC, KC_3
 ),
 };
